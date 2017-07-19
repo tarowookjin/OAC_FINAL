@@ -12,12 +12,9 @@ public class impresion_ching {
 	DefaultTableModel modelo= new DefaultTableModel();
 	JTable tabla = new JTable(modelo);
 	
-<<<<<<< HEAD:src/entities/impresion.java
-	JTable tabla2= new JTable();
-	public impresion(){
-=======
+
 	public impresion_ching(){
->>>>>>> 51998c295ce6194dd1c1c7a3394e797600828aa6:src/entities/impresion_ching.java
+
 		
 		interrupciones objInterrup = new interrupciones();	
 			
