@@ -86,4 +86,15 @@ public class interrupciones {
 		
 		return cant;
 	}
+	
+	public String[] getIRQ()
+	{
+		return IRQ;
+	}
+	
+	public String[] getFunciones()
+	{
+		return funcion;
+	}
+	
 }
