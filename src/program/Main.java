@@ -1,4 +1,6 @@
 package program;		//hola oni-cha xD	
+
+import entities.interrupciones;
 import entities.impresion;
 import java.util.EmptyStackException;
 import javax.swing.*;
@@ -9,6 +11,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		//hola
 		int ele=0;
+		interrupciones inte = new interrupciones();
 		do{
 			try {
 			ele=0;
@@ -36,6 +39,39 @@ public class Main {
 					
 					break;
 				case 3:
+					try{
+						int index=0;//variable para guardar irq
+						ele=0;
+						String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
+						if(tempele==null){
+							throw new EmptyStackException();}
+						ele = Integer.parseInt(tempele);
+						if(ele >= 0 && ele <= 15){ 
+							inte.agregarINT(ele);
+							index=ele;
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);
+						}
+						try{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo en segundos");
+							if(tempele==null){
+								throw new EmptyStackException();}
+							ele = Integer.parseInt(tempele);
+							inte.duration[index]=ele;
+						}
+						catch(NumberFormatException io){
+							JOptionPane.showMessageDialog(null, "Introduzca valores de tiempo","ERROR",JOptionPane.WARNING_MESSAGE);}
+						}
+						
+
+					catch (NumberFormatException io){
+						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+					{ele=6;}
+					finally
+					{}
+					
 					break;
 				case 4:
 					break;
