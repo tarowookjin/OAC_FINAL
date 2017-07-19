@@ -14,6 +14,7 @@ public class solveINT {
 	Stack < String > E = new Stack < String > (); //Pila entrada
     Stack < String > P = new Stack < String > (); //Pila temporal para guardar los tiempos
     Stack < String > S = new Stack < String > (); //Pila que guarda los dispositivos
+    Stack < String > A = new Stack < String > (); //Pila para ordenar
 
 	
 	public void solve(int finaltime,int programtime){
@@ -29,7 +30,7 @@ public class solveINT {
 		for(int i=in.stack;i>=0;i--) {
 			E.push(in.IRQ[i]);
 		}
-		E.push("Programa");
+		E.push("16");
 		
 		int priact=99;//prioridad actual
 		int i=0;
@@ -38,14 +39,14 @@ public class solveINT {
 			if(time==in.time_int[i]) {
 				inte=compare(priact);
 				if(inte==true) {
-					priact=Integer.parseInt(in.prioridad[Integer.parseInt(E.peek())]);
+					S.push(E.pop());
 					P.push(Integer.toString(temptime));
+					priact=Integer.parseInt(in.prioridad[Integer.parseInt(E.peek())]);
 					temptime=in.duration[i];
 				}
 				if(inte==false)
 				{
-					S.push(E.pop());
-					P.push(Integer.toString(in.duration[i]));
+					ordenarpila(i);
 				}
 				i++;
 				temptime--;
@@ -77,7 +78,21 @@ public class solveINT {
 		
 	}
 
-	public void ordenarpila() {
-		
+	public void ordenarpila(int i) {
+		int prio,prio2;
+		prio=Integer.parseInt(in.prioridad[Integer.parseInt(S.peek())]);
+		prio2=Integer.parseInt(in.prioridad[Integer.parseInt(E.peek())]);
+		if(prio>prio2){
+			S.push(E.pop());
+			P.push(Integer.toString(in.duration[i]));
+		}else {
+			A.push(S.pop());
+			S.push(E.pop());
+			S.push(A.pop());
+			
+			A.push(P.pop());
+			P.push(Integer.toString(in.duration[i]));
+			S.push(A.pop());
+		}
 	}
 }

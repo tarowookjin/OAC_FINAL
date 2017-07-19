@@ -2,8 +2,8 @@ package entities;
 	
 	
 public class interrupciones {
-	String funcion[]=new String[16];
-	String prioridad[]=new String[16];
+	String funcion[]=new String[17];
+	String prioridad[]=new String[17];
 	String IRQ[]=new String[50];
 	int time_int[]=new int[50];
 	int duration[]=new int[50];
@@ -28,6 +28,7 @@ public class interrupciones {
 		funcion[13]="Co-Procesado";
 		funcion[14]="Disco";
 		funcion[15]="Libre";
+		funcion[15]="Programa";
 		
 		prioridad[0]="1";
 		prioridad[1]="2";
@@ -45,6 +46,7 @@ public class interrupciones {
 		prioridad[13]="8";
 		prioridad[14]="9";
 		prioridad[15]="10";
+		prioridad[16]="99";
 	}
 
 	//con esta funcion agregamos una interrpcion
