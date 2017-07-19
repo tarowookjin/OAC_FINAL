@@ -5,6 +5,7 @@ public class interrupciones {
 	String funcion[]=new String[17];
 	String prioridad[]=new String[17];
 	String IRQ[]=new String[50];
+	String impresion[]=new String[16];
 	int time_int[]=new int[50];
 	public int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
@@ -92,6 +93,7 @@ public class interrupciones {
 				cant++;
 			}
 		}//con esto determino la cantidad de funciones existentes
+		
 		
 		return cant;
 	}
