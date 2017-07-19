@@ -11,7 +11,23 @@ public class Main {
 		// TODO Auto-generated method stub
 		//hola
 		int ele=0;
+		int t_Eje = 0;//tiempo de ejecucion
+		int t_total=0;//tiempo total con la suma de todas las interrupcions
 		interrupciones inte = new interrupciones();
+		try{ele=0;
+		String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecución del programa");
+		if(tempele==null)
+		{throw new EmptyStackException();}
+		ele = Integer.parseInt(tempele);
+		t_Eje = ele;
+		t_total = t_total + t_Eje;
+		}
+		catch (NumberFormatException io)
+		{JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+		catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+		{ele=6;}
+		finally
+		{}
 		do{
 			try {
 			ele=0;
@@ -59,6 +75,7 @@ public class Main {
 								throw new EmptyStackException();}
 							ele = Integer.parseInt(tempele);
 							inte.duration[index]=ele;
+							t_total = t_total + ele;
 						}
 						catch(NumberFormatException io){
 							JOptionPane.showMessageDialog(null, "Introduzca valores de tiempo","ERROR",JOptionPane.WARNING_MESSAGE);}
