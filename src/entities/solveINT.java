@@ -31,7 +31,7 @@ public class solveINT {
 			E.push(in.IRQ[i]);
 		}
 		E.push("16");
-		
+		String dispactual="16";
 		int priact=99;//prioridad actual
 		int i=0;
 		do {
@@ -39,8 +39,9 @@ public class solveINT {
 			if(time==in.time_int[i]) {
 				inte=compare(priact);
 				if(inte==true) {
-					S.push(E.pop());
+					S.push(dispactual);
 					P.push(Integer.toString(temptime));
+					dispactual=E.pop();
 					priact=Integer.parseInt(in.prioridad[Integer.parseInt(E.peek())]);
 					temptime=in.duration[i];
 				}
@@ -58,6 +59,7 @@ public class solveINT {
 					time++;
 				}
 				else {
+					dispactual=S.pop();
 					temptime=Integer.parseInt(P.pop());
 					temptime--;
 					time++;
