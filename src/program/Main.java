@@ -6,9 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		//hola
-=======
+
 		int ele;
 		do{
 			String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\n1-Ver integrantes del grupo\n2-Ver Tabla\n3- Agregar Interrupcion\n4-Eliminar Interrupcion\n5-Iniciar\n6-Salir");
@@ -38,7 +36,6 @@ public class Main {
 			}
 		
 		}while(ele !=6);
->>>>>>> 5918769903024d428712e54c59a4dce92da988ca
 	}
 
 }
