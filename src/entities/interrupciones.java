@@ -5,6 +5,8 @@ public class interrupciones {
 	String funcion[]=new String[16];
 	String prioridad[]=new String[16];
 	String IRQ[]=new String[50];
+	int time_int[]=new int[50];
+	int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
 
 	public interrupciones(){
@@ -55,11 +57,15 @@ public class interrupciones {
 	public void deleteINT(int num) {
 		if(IRQ[num+1].equals(null)) {
 			IRQ[num]=null;
+			time_int[num]=0;
+			duration[num]=0;
 			stack--;
 		}else{
 			int cont=num;//esto es para mover las interrupciones al eliminarla
 			do {
 				IRQ[cont]=IRQ[cont+1];
+				time_int[cont]=time_int[cont+1];
+				duration[cont]=duration[cont+1];
 				cont++;
 			}while(!IRQ[cont].equals(null));
 			stack--;
@@ -85,6 +91,9 @@ public class interrupciones {
 		}//con esto determino la cantidad de funciones existentes
 		
 		return cant;
+	}
+	public int getprioridad(int num) {
+		return Integer.parseInt(prioridad[Integer.parseInt(IRQ[num])]);
 	}
 	
 	public String[] getIRQ()
