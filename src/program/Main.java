@@ -1,5 +1,6 @@
 package program;
 
+import entities.impresion;
 import javax.swing.*;
 
 public class Main {
@@ -19,6 +20,9 @@ public class Main {
 				break;
 				
 				case 2 :
+					impresion prueba = new impresion();
+					prueba.MostrarTabla();
+					
 					break;
 				case 3:
 					break;
