@@ -1,5 +1,5 @@
 package program;
-
+import entities.impresion;
 import java.util.EmptyStackException;
 import javax.swing.*;
 
@@ -31,6 +31,9 @@ public class Main {
 				break;
 				
 				case 2 :
+					impresion prueba = new impresion();
+					prueba.MostrarTabla();
+					
 					break;
 				case 3:
 					break;
