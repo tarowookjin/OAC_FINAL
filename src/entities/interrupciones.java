@@ -1,16 +1,18 @@
 package entities;
-	
-	
+
+import javax.sound.midi.Synthesizer;
+
 public class interrupciones {
-	String funcion[]=new String[17];
+	static String funcion[]=new String[17];
 	String prioridad[]=new String[17];
-	String IRQ[]=new String[50];
+	static String IRQ[]=new String[50];
 	String impresion[]=new String[16];
-	int time_int[]=new int[50];
-	public int duration[]=new int[50];
+	static int time_int[]=new int[50];
+	public static int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
 
-	public interrupciones(){
+	public void ini_interrupciones(){
+		impresion[0]="Programa";
 		//constructor para la tabla de interrupciones
 		//las IRQ son los indices
 		funcion[0]="Reloj del Sitema";
@@ -48,12 +50,19 @@ public class interrupciones {
 		prioridad[14]="9";
 		prioridad[15]="10";
 		prioridad[16]="99";
+		
+		for(int i=0;i<50;i++) {
+			IRQ[i]=null;
+		}//inicializo el arreglo
 	}
 
 	//con esta funcion agregamos una interrpcion
-	public void agregarINT(int IRQ){
+	public void agregarINT(int IRQ, int time,int duration){
 		this.IRQ[stack]=Integer.toString(IRQ);
+		time_int[stack]=time;
+		this.duration[stack]=duration;
 		stack++;
+		System.out.println("Stack"+stack);
 	}
 	
 	
@@ -84,14 +93,21 @@ public class interrupciones {
 			cantidad[i]=false;
 		}//inicializo el arreglo booleano como falso
 		
-		for(int i=0;i>=stack;i++) {
-			cantidad[Integer.parseInt(IRQ[i])]=true;
+		for(int i=0;i<=stack;i++) {
+			if(IRQ[i]!=null) {
+				System.out.println("IRQ:"+Integer.parseInt(IRQ[i]));
+				cantidad[Integer.parseInt(IRQ[i])]=true;
+			}
 		}//cambia las funciones existentes a verdadero
 		
-		for(int i=0;i>16;i++) {
+		for(int i=0;i<16;i++) {
+			System.out.println("i="+i);
 			if(cantidad[i]==true) {
+				System.out.println("Paso aqui");
 				cant++;
+				impresion[cant]=funcion[i];
 			}
+			System.out.println("cantidad:"+cant);
 		}//con esto determino la cantidad de funciones existentes
 		
 		
