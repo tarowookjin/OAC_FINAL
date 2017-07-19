@@ -1,7 +1,10 @@
-package program;		//hola oni-cha xD	 sas
+package program;
 
 import entities.interrupciones;
+import entities.post_print;
 import entities.pre_print;
+import entities.solveINT;
+
 //import entities.impresion_ching;
 import java.util.EmptyStackException;
 import javax.swing.*;
@@ -15,7 +18,9 @@ public class Main {
 		int ele=0;
 		int t_Eje = 0;//tiempo de ejecucion
 		int t_total=0;//tiempo total con la suma de todas las interrupcions
+		int program = 0;
 		interrupciones inte = new interrupciones();
+		solveINT sol =new solveINT();
 		do{
 			try{
 			ele=0;
@@ -24,6 +29,7 @@ public class Main {
 			{throw new EmptyStackException();}
 			ele = Integer.parseInt(tempele);
 			t_Eje = ele;
+			program=ele;
 			t_total = t_total + t_Eje;
 			inte.ini_interrupciones();
 			x=0;
@@ -41,7 +47,7 @@ public class Main {
 		do{
 			try {
 			ele=0;
-			String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\n1-Ver integrantes del grupo\n2-Ver Tabla\n3- Agregar Interrupcion\n4-Eliminar Interrupcion\n5-Iniciar\n6-Salir");
+			String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\n1-Ver integrantes del grupo\n2-Ver Tabla\n3- Agregar Interrupcion\n4-Iniciar\n5-Salir");
 			if(tempele==null)
 			{throw new EmptyStackException();}
 			ele = Integer.parseInt(tempele);
@@ -60,11 +66,12 @@ public class Main {
 				break;
 				
 				case 2 :
-					pre_print pre_impre = new pre_print(inte.verificar());
+					pre_print pre_impre = new pre_print(inte.getstack());
 					pre_impre.MostrarTabla();
 					
 					break;
 				case 3:
+				{
 					boolean z = false;
 					int ans=0,ans2=0,ans3=0;
 					String tempele;
@@ -85,7 +92,7 @@ public class Main {
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-						{break;}
+						{System.exit(0);}
 					z = false;
 					try{
 						do{
@@ -100,7 +107,7 @@ public class Main {
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-					{break;}
+					{System.exit(0);}
 					z = false;
 					try{
 						do{
@@ -112,48 +119,33 @@ public class Main {
 							t_total=t_total+ans3;
 							z = true;
 						}while(z != true );
+						ele=0;
 						}
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-						{break;}
+					{System.exit(0);}
 					inte.agregarINT(ans,ans2,ans3);
-					break;
+					break;}
 				case 4:
-					int indice;
-					z = false;
-					try{
-						do{
-							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tEliminar Interrupciones\n\t\t\t\n Introdusca el IRQ que desea Eliminar");
-							if(tempele==null){
-								throw new EmptyStackException();}
-							ele = Integer.parseInt(tempele);
-							indice = ele;
-							z = true;
-						}while(z != true );
-							t_total=t_total-inte.deleteINT(indice);
-						}
-					catch (NumberFormatException io){
-						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
-					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-						{break;}
 					
+					sol.solve(t_total,program);
+					post_print post_imp = new post_print(inte.verificar());
+					post_imp.MostrarTabla();
+					System.out.println("paso aqui");
 					break;
 				case 5:
-					break;
-				case 6:
 					break;
 				case 7:
 					System.out.print(t_total);
 					break;
 				default:
-						JOptionPane.showMessageDialog(null,"Porfavor elija una de las opciones disponibles");
-						break;
+					JOptionPane.showMessageDialog(null,"Porfavor elija una de las opciones disponibles");
+					break;
 					
 			
 			}
-		
-		}while(ele !=6);
+		}while(ele!=5);
 		
 	}
 
