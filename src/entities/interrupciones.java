@@ -62,6 +62,7 @@ public class interrupciones {
 				IRQ[cont]=IRQ[cont+1];
 				cont++;
 			}while(!IRQ[cont].equals(null));
+			stack--;
 		}
 	}
 	

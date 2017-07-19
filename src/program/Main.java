@@ -6,7 +6,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 
+=======
+		//hola
+>>>>>>> 277d6198511dceff857ef32e2bbed24f9adb6ceb
 		int ele;
 		do{
 			String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\n1-Ver integrantes del grupo\n2-Ver Tabla\n3- Agregar Interrupcion\n4-Eliminar Interrupcion\n5-Iniciar\n6-Salir");
@@ -28,7 +32,7 @@ public class Main {
 					break;
 				case 6:
 					break;
-					default:
+				default:
 						JOptionPane.showMessageDialog(null,"Porfavor elija una de las opciones disponibles");
 						break;
 					
