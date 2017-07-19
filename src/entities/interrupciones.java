@@ -1,13 +1,16 @@
 package entities;
 
-import javax.sound.midi.Synthesizer;
+
+
+import java.lang.reflect.Field;
+
 
 public class interrupciones {
 	static String funcion[]=new String[17];
 	String prioridad[]=new String[17];
 	static String IRQ[]=new String[50];
 	String impresion[]=new String[16];
-	static int time_int[]=new int[50];
+	public static int time_int[]=new int[50];
 	public static int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
 
@@ -67,24 +70,37 @@ public class interrupciones {
 	
 	
 	//funcion para eliminar interrupciones con el ID
-	public void deleteINT(int num) {
-		if(IRQ[num+1].equals(null)) {
-			IRQ[num]=null;
-			time_int[num]=0;
-			duration[num]=0;
-			stack--;
-		}else{
-			int cont=num;//esto es para mover las interrupciones al eliminarla
-			do {
-				IRQ[cont]=IRQ[cont+1];
-				time_int[cont]=time_int[cont+1];
-				duration[cont]=duration[cont+1];
-				cont++;
-			}while(!IRQ[cont].equals(null));
-			stack--;
+	public int deleteINT(int num) {
+		int t_muerto = 0;
+		String elemento = Integer.toString(num);
+		for(int i = stack-1;i>=0;i--){	
+			System.out.println("s"+i+"i"+IRQ[i]+"e"+elemento);
+			if(IRQ[i].equals(elemento)){
+				System.out.println("hi");
+				IRQ[i]=null;
+				t_muerto=time_int[i];
+				time_int[i]=0;
+				duration[i]=0;
+				stack--;
+				int j = i;
+				do {
+					IRQ[j]=IRQ[j+1];
+					time_int[j]=time_int[j+1];
+					duration[j]=duration[j+1];
+					j++;
+				}while(!IRQ[j].equals(null));
+				stack--;
+				i=0;
+			}
 		}
+		return t_muerto;
 	}
 	
+	private Field getDeclaredField(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public int verificar(){
 		int cant=0;
 		boolean cantidad[]=new boolean[16];//para verificar cuantas funciones no iguales exiten
@@ -102,7 +118,7 @@ public class interrupciones {
 		
 		for(int i=0;i<16;i++) {
 			System.out.println("i="+i);
-			if(cantidad[i]==true) {
+ 			if(cantidad[i]==true) {
 				System.out.println("Paso aqui");
 				cant++;
 				impresion[cant]=funcion[i];
