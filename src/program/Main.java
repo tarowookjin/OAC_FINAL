@@ -66,7 +66,6 @@ public class Main {
 					break;
 				case 3:
 					boolean z = false;
-					int index=0;//variable para guardar irq
 					int ans=0,ans2=0,ans3=0;
 					String tempele;
 					try{
@@ -95,6 +94,7 @@ public class Main {
 								throw new EmptyStackException();}
 							ele = Integer.parseInt(tempele);
 							ans2 = ele;
+							t_total=t_total+ans2;
 							z = true;
 						}while(z != true );
 					}
