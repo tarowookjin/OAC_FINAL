@@ -40,7 +40,8 @@ int indice[] = new int [50]; // indice de las interrupciones
 		
 		// creo las columnas
 		modelo.addColumn("ID");
-		
+		modelo.addColumn("Programa");
+
 		
 		
 		indice[0]= 0;
