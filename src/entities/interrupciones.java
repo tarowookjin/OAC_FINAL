@@ -9,8 +9,13 @@ public class interrupciones {
 	static String funcion[]=new String[17];
 	String prioridad[]=new String[17];
 	static String IRQ[]=new String[50];
-	String impresion[]=new String[16];
+
+	//String impresion[]=new String[16];
 	public static int time_int[]=new int[50];
+
+	static String impresion[]=new String[16];
+	//static int time_int[]=new int[50];
+
 	public static int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
 
@@ -61,9 +66,9 @@ public class interrupciones {
 
 	//con esta funcion agregamos una interrpcion
 	public void agregarINT(int IRQ, int time,int duration){
-		this.IRQ[stack]=Integer.toString(IRQ);
+		interrupciones.IRQ[stack]=Integer.toString(IRQ);
 		time_int[stack]=time;
-		this.duration[stack]=duration;
+		interrupciones.duration[stack]=duration;
 		stack++;
 		System.out.println("Stack"+stack);
 	}
@@ -120,13 +125,13 @@ public class interrupciones {
 			System.out.println("i="+i);
  			if(cantidad[i]==true) {
 				System.out.println("Paso aqui");
+
+			if(cantidad[i]==true) {
+				impresion[i]=funcion[i];
+
 				cant++;
-				impresion[cant]=funcion[i];
 			}
-			System.out.println("cantidad:"+cant);
-		}//con esto determino la cantidad de funciones existentes
-		
-		
+ 			}}//con esto determino la cantidad de funciones existentes
 		return cant;
 	}
 	public int getprioridad(int num) {
