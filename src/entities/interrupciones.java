@@ -58,9 +58,9 @@ public class interrupciones {
 
 	//con esta funcion agregamos una interrpcion
 	public void agregarINT(int IRQ, int time,int duration){
-		this.IRQ[stack]=Integer.toString(IRQ);
+		interrupciones.IRQ[stack]=Integer.toString(IRQ);
 		time_int[stack]=time;
-		this.duration[stack]=duration;
+		interrupciones.duration[stack]=duration;
 		stack++;
 		System.out.println("Stack"+stack);
 	}
@@ -102,7 +102,7 @@ public class interrupciones {
 		
 		for(int i=0;i<16;i++) {
 			if(cantidad[i]==true) {
-				impresion[cant]=funcion[i];
+				impresion[i]=funcion[i];
 				cant++;
 			}
 		}//con esto determino la cantidad de funciones existentes

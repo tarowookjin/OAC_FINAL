@@ -8,14 +8,22 @@ public class post_print {
 	
 	DefaultTableModel model = new DefaultTableModel();
 	JTable table = new JTable(model);
-	
+	int i=0,j=0;
 	public post_print(int cant) {
 		if(cant!=0) {
 		model.addColumn("Programa");
-		for(int i=0;i<=cant;i++) {
-			model.addColumn(interrupciones.impresion[i]);
-		}//imprime los encabezados
+		i=0;
+		do{
+			if(interrupciones.impresion[i]!=null) {
+				model.addColumn(interrupciones.impresion[i]);
+			}
+		}while(i!=16);//imprime los encabezados
 		
+		do{
+			if(interrupciones.impresion[j]!=null) {
+				
+			}
+		}while(j!=16);//imprime los encabezados
 		
 		}
 		else {
@@ -23,7 +31,7 @@ public class post_print {
 		}
 	}
 	
-	public void impresiones(int cant) {
+	public void impresiones(int cant, String IRQ) {
 		if(cant==1) {
 			
 		}
