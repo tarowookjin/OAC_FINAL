@@ -65,38 +65,59 @@ public class Main {
 					
 					break;
 				case 3:
+					boolean z = false;
+					int index=0;//variable para guardar irq
+					int ans=0,ans2=0,ans3=0;
+					String tempele;
 					try{
-						int z=1;
-						int index=0;//variable para guardar irq
-						int ans,ans2,ans3;
-						String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
-						if(tempele==null){
-							throw new EmptyStackException();}
-						String temtimeint =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo donde interrumpe");
-						if(temtimeint==null){
-							throw new EmptyStackException();}
-						String temtime =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo en segundos");
-						if(temtime==null){
-							throw new EmptyStackException();}
-						ans = Integer.parseInt(tempele);
-						ans2 = Integer.parseInt(temtimeint);
-						ans3 = Integer.parseInt(temtime);
-						if(ele >= 0 && ele <= 15){ 
-							inte.agregarINT(ans,ans2,ans3);
-							index=ele;
-						}
-						else{
-							JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);
-						}
+						do{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
+							if(tempele==null){
+								throw new EmptyStackException();}
+							ele = Integer.parseInt(tempele);
+							if(ele >= 0 && ele <= 15){
+								ans = ele;
+								z = true;
+							}
+							else{
+								JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);}
+						}while(z != true );
 					}
-
+					catch (NumberFormatException io){
+						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+						{break;}
+					z = false;
+					try{
+						do{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo donde interrumpe");
+							if(tempele==null){
+								throw new EmptyStackException();}
+							ele = Integer.parseInt(tempele);
+							ans2 = ele;
+							z = true;
+						}while(z != true );
+					}
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
 					{break;}
-					finally
-					{}
-					
+					z = false;
+					try{
+						do{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo en segundos");
+							if(tempele==null){
+								throw new EmptyStackException();}
+							ele = Integer.parseInt(tempele);
+							ans3 = ele;
+							z = true;
+						}while(z != true );
+						}
+					catch (NumberFormatException io){
+						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+						{break;}
+					inte.agregarINT(ans,ans2,ans3);
 					break;
 				case 4:
 					break;
