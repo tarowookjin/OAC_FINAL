@@ -10,24 +10,32 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//hola
+		int x=1;
 		int ele=0;
 		int t_Eje = 0;//tiempo de ejecucion
 		int t_total=0;//tiempo total con la suma de todas las interrupcions
 		interrupciones inte = new interrupciones();
-		try{ele=0;
-		String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecución del programa");
-		if(tempele==null)
-		{throw new EmptyStackException();}
-		ele = Integer.parseInt(tempele);
-		t_Eje = ele;
-		t_total = t_total + t_Eje;
-		}
-		catch (NumberFormatException io)
-		{JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
-		catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-		{ele=6;}
-		finally
-		{}
+		do{
+			try{
+				ele=0;
+				String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecución del programa");
+				if(tempele==null)
+				{throw new EmptyStackException();}
+				ele = Integer.parseInt(tempele);
+				t_Eje = ele;
+				t_total = t_total + t_Eje;
+				x = 0;
+			}
+			catch (NumberFormatException io)
+			{
+				JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);
+				x=1;
+			}
+			catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+			{System.exit(0);}
+			finally
+			{}
+		}while(x!=0);
 		do{
 			try {
 			ele=0;
@@ -39,7 +47,7 @@ public class Main {
 			catch (NumberFormatException io)
 			{JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 			catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-			{ele=6;}
+			{System.exit(0);}
 			finally
 			{}
 			switch(ele)
@@ -56,36 +64,44 @@ public class Main {
 					break;
 				case 3:
 					try{
+						int z=1;
 						int index=0;//variable para guardar irq
 						ele=0;
-						String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
-						if(tempele==null){
-							throw new EmptyStackException();}
-						ele = Integer.parseInt(tempele);
-						if(ele >= 0 && ele <= 15){ 
-							inte.agregarINT(ele);
-							index=ele;
-						}
-						else{
-							JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);
-						}
-						try{
-							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo en segundos");
+						String tempele;
+						do{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
 							if(tempele==null){
 								throw new EmptyStackException();}
 							ele = Integer.parseInt(tempele);
-							inte.duration[index]=ele;
-							t_total = t_total + ele;
-						}
-						catch(NumberFormatException io){
-							JOptionPane.showMessageDialog(null, "Introduzca valores de tiempo","ERROR",JOptionPane.WARNING_MESSAGE);}
-						}
-						
+							if(ele >= 0 && ele <= 15){ 
+								inte.agregarINT(ele);
+								index=ele;
+								z = 0;
+							}
+							else{
+								JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);
+							}
+						}while(z !=0);
+						z=1;
+						do{
+							try{
+								tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el tiempo en segundos");
+								if(tempele==null){
+									throw new EmptyStackException();}
+								ele = Integer.parseInt(tempele);
+								inte.duration[index]=ele;
+								t_total = t_total + ele;
+								z = 0;
+							}
+							catch(NumberFormatException io){
+								JOptionPane.showMessageDialog(null, "Introduzca valores de tiempo","ERROR",JOptionPane.WARNING_MESSAGE);}
+						}while(z !=0);
+					}
 
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-					{ele=6;}
+					{break;}
 					finally
 					{}
 					
@@ -104,6 +120,7 @@ public class Main {
 			}
 		
 		}while(ele !=6);
+		
 	}
 
 }
