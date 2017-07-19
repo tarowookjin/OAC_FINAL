@@ -89,7 +89,7 @@ public class Main {
 								if(tempele==null){
 									throw new EmptyStackException();}
 								ele = Integer.parseInt(tempele);
-								inte.duration[index]=ele;
+								inte.time_int[index]=ele;
 								t_total = t_total + ele;
 								z = 0;
 							}
