@@ -6,7 +6,7 @@ public class interrupciones {
 	static String funcion[]=new String[17];
 	String prioridad[]=new String[17];
 	static String IRQ[]=new String[50];
-	String impresion[]=new String[16];
+	static String impresion[]=new String[16];
 	static int time_int[]=new int[50];
 	public static int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
@@ -101,16 +101,11 @@ public class interrupciones {
 		}//cambia las funciones existentes a verdadero
 		
 		for(int i=0;i<16;i++) {
-			System.out.println("i="+i);
 			if(cantidad[i]==true) {
-				System.out.println("Paso aqui");
-				cant++;
 				impresion[cant]=funcion[i];
+				cant++;
 			}
-			System.out.println("cantidad:"+cant);
 		}//con esto determino la cantidad de funciones existentes
-		
-		
 		return cant;
 	}
 	public int getprioridad(int num) {

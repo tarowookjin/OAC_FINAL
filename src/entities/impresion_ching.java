@@ -7,12 +7,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class impresion {
+public class impresion_ching {
 	
 	DefaultTableModel modelo= new DefaultTableModel();	
 	JTable tabla = new JTable(modelo);
 	
-	public impresion(){
+	public impresion_ching(){
 		
 		interrupciones objInterrup = new interrupciones();	
 			

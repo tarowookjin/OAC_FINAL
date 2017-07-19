@@ -2,7 +2,7 @@ package program;		//hola oni-cha xD
 
 import entities.interrupciones;
 import entities.pre_print;
-import entities.impresion;
+import entities.impresion_ching;
 import java.util.EmptyStackException;
 import javax.swing.*;
 

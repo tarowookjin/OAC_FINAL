@@ -22,13 +22,15 @@ public class solveINT {
 		int temptime=programtime;
 		boolean inte=false;
 		time_faltante=new int[finaltime];
+		timeini=new int[finaltime];
+		timefini=new int[finaltime];
 		hayINT=new boolean[finaltime];
 		disp=new String[finaltime];
 		rango=new String[finaltime];
 		
 		//almaceno todo en una pila
 		for(int i=in.stack;i>=0;i--) {
-			E.push(in.IRQ[i]);
+			E.push(interrupciones.IRQ[i]);
 		}
 		E.push("16");
 		String dispactual="16";
@@ -36,14 +38,14 @@ public class solveINT {
 		int i=0;
 		do {
 			inte=false;
-			if(time==in.time_int[i]) {
+			if(time==interrupciones.time_int[i]) {
 				inte=compare(priact);
 				if(inte==true) {
 					S.push(dispactual);
 					P.push(Integer.toString(temptime));
 					dispactual=E.pop();
 					priact=Integer.parseInt(in.prioridad[Integer.parseInt(E.peek())]);
-					temptime=in.duration[i];
+					temptime=interrupciones.duration[i];
 				}
 				if(inte==false)
 				{
@@ -96,5 +98,9 @@ public class solveINT {
 			P.push(Integer.toString(in.duration[i]));
 			S.push(A.pop());
 		}
+	}
+	
+	public void savetime(int time){
+		
 	}
 }
