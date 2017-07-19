@@ -1,4 +1,4 @@
-package program;
+package program;		//hola oni-cha xD	
 import entities.impresion;
 import java.util.EmptyStackException;
 import javax.swing.*;
