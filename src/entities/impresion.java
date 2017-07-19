@@ -9,9 +9,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class impresion {
 	
-	DefaultTableModel modelo= new DefaultTableModel();	
+	DefaultTableModel modelo= new DefaultTableModel();
 	JTable tabla = new JTable(modelo);
 	
+	JTable tabla2= new JTable();
 	public impresion(){
 		
 		interrupciones objInterrup = new interrupciones();	
@@ -87,5 +88,7 @@ public class impresion {
 		JOptionPane.showMessageDialog(null, new JScrollPane(tabla));
 	}
 	
-	
+	public void TablaProceso(){
+		
+	}
 }
