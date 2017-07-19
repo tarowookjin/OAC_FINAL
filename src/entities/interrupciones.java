@@ -6,7 +6,7 @@ public class interrupciones {
 	String prioridad[]=new String[17];
 	String IRQ[]=new String[50];
 	int time_int[]=new int[50];
-	int duration[]=new int[50];
+	public int duration[]=new int[50];
 	int stack=0; //variable para saber por donde va la introduccion de funciones
 
 	public interrupciones(){
@@ -54,6 +54,7 @@ public class interrupciones {
 		this.IRQ[stack]=Integer.toString(IRQ);
 		stack++;
 	}
+	
 	
 	//funcion para eliminar interrupciones con el ID
 	public void deleteINT(int num) {
