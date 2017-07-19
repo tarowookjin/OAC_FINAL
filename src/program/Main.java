@@ -11,10 +11,12 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//hola
+		int x=1;
 		int ele=0;
 		int t_Eje = 0;//tiempo de ejecucion
 		int t_total=0;//tiempo total con la suma de todas las interrupcions
 		interrupciones inte = new interrupciones();
+	do{
 		try{
 		ele=0;
 		String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecuci�n del programa");
@@ -24,13 +26,18 @@ public class Main {
 		t_Eje = ele;
 		t_total = t_total + t_Eje;
 		inte.ini_interrupciones();
+		x=0;
 		}
 		catch (NumberFormatException io)
-		{JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+		{
+			JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);
+			x=1;
+		}
 		catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
 		{System.exit(0);}
 		finally
 		{}
+	}while(x!=0);
 		do{
 			try {
 			ele=0;
@@ -42,7 +49,7 @@ public class Main {
 			catch (NumberFormatException io)
 			{JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 			catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-			{ele=6;}
+			{System.exit(0);}
 			finally
 			{}
 			switch(ele)
@@ -59,6 +66,7 @@ public class Main {
 					break;
 				case 3:
 					try{
+						int z=1;
 						int index=0;//variable para guardar irq
 						int ans,ans2,ans3;
 						String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tAgregar Interrupciones\n\t\t\t\n Introdusca el IRQ");
@@ -81,10 +89,11 @@ public class Main {
 							JOptionPane.showMessageDialog(null, "Los IRQ solo son de 0 a 15!!!","ERROR",JOptionPane.WARNING_MESSAGE);
 						}
 					}
+
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
 					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-					{ele=6;}
+					{break;}
 					finally
 					{}
 					
@@ -103,6 +112,7 @@ public class Main {
 			}
 		
 		}while(ele !=6);
+		
 	}
 
 }

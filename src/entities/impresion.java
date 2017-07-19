@@ -43,16 +43,7 @@ public class impresion {
 		modelo.addColumn("Programa");
 
 		
-		 // prueba de llenado de el arreglo para ver si sirve 
-		indice[0]= 0;
-		indice[1]=1;
-		indice[2]=7;
-		indice[3]=1;
-		tempInd[0] ="0"; 
-		tempInd[1]= "1";
-		tempInd[2] = "7";
-		tempInd[3]="1";
-		// hasta aqui prueba de llenado
+	
 		
 		// agrego cuantas columnas por funcion sean necesarias
 /* si el arreglo TempInd tiene contenido indica que se ingreso una funcion y se crea una columna
