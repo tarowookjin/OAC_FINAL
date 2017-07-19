@@ -16,28 +16,28 @@ public class Main {
 		int t_Eje = 0;//tiempo de ejecucion
 		int t_total=0;//tiempo total con la suma de todas las interrupcions
 		interrupciones inte = new interrupciones();
-	do{
-		try{
-		ele=0;
-		String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecuci�n del programa");
-		if(tempele==null)
-		{throw new EmptyStackException();}
-		ele = Integer.parseInt(tempele);
-		t_Eje = ele;
-		t_total = t_total + t_Eje;
-		inte.ini_interrupciones();
-		x=0;
-		}
-		catch (NumberFormatException io)
-		{
-			JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);
-			x=1;
-		}
-		catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
-		{System.exit(0);}
-		finally
-		{}
-	}while(x!=0);
+		do{
+			try{
+			ele=0;
+			String tempele =JOptionPane.showInputDialog(null,"\t\t\t\tInterrupciones Programadas\n\t\t\t\nIntrodusca el tiempo de ejecuci�n del programa");
+			if(tempele==null)
+			{throw new EmptyStackException();}
+			ele = Integer.parseInt(tempele);
+			t_Eje = ele;
+			t_total = t_total + t_Eje;
+			inte.ini_interrupciones();
+			x=0;
+			}
+			catch (NumberFormatException io)
+			{
+				JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);
+				x=1;
+			}
+			catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+			{System.exit(0);}
+			finally
+			{}
+		}while(x!=0);
 		do{
 			try {
 			ele=0;
@@ -94,9 +94,8 @@ public class Main {
 								throw new EmptyStackException();}
 							ele = Integer.parseInt(tempele);
 							ans2 = ele;
-							t_total=t_total+ans2;
 							z = true;
-						}while(z != true );
+						}while(z != true);
 					}
 					catch (NumberFormatException io){
 						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
@@ -110,6 +109,7 @@ public class Main {
 								throw new EmptyStackException();}
 							ele = Integer.parseInt(tempele);
 							ans3 = ele;
+							t_total=t_total+ans3;
 							z = true;
 						}while(z != true );
 						}
@@ -120,10 +120,31 @@ public class Main {
 					inte.agregarINT(ans,ans2,ans3);
 					break;
 				case 4:
+					int indice;
+					z = false;
+					try{
+						do{
+							tempele =JOptionPane.showInputDialog(null,"\t\t\t\tEliminar Interrupciones\n\t\t\t\n Introdusca el IRQ que desea Eliminar");
+							if(tempele==null){
+								throw new EmptyStackException();}
+							ele = Integer.parseInt(tempele);
+							indice = ele;
+							z = true;
+						}while(z != true );
+							t_total=t_total-inte.deleteINT(indice);
+						}
+					catch (NumberFormatException io){
+						JOptionPane.showMessageDialog(null, "Introduzca una opcion valida","ERROR",JOptionPane.WARNING_MESSAGE);}
+					catch (EmptyStackException io)//si el usuario apreta cancelar o quit sale del programa ya que devuelve un null
+						{break;}
+					
 					break;
 				case 5:
 					break;
 				case 6:
+					break;
+				case 7:
+					System.out.print(t_total);
 					break;
 				default:
 						JOptionPane.showMessageDialog(null,"Porfavor elija una de las opciones disponibles");
