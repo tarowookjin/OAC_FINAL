@@ -28,7 +28,9 @@ public class solveINT {
 		System.out.println("Stack"+in.getstack());
 		//almaceno todo en una pila
 		for(int i=in.getstack()-1;i>=0;i--) {
+			
 			E.push(interrupciones.IRQ[i]);
+			
             System.out.println(interrupciones.IRQ[i]);
 		}
 		E.push("16");
@@ -52,7 +54,7 @@ public class solveINT {
 					dispactual=E.pop();
 					temptime=interrupciones.duration[i];
 				}
-				if(inte==false)
+				 if(inte==false)
 				{
 					ordenarpila(i);
 				}
@@ -107,7 +109,7 @@ public class solveINT {
 			
 			A.push(P.pop());
 			P.push(Integer.toString(interrupciones.duration[i]));
-			S.push(A.pop());
+			P.push(A.pop());
 		}
 	}
 	
