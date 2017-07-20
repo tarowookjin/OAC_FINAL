@@ -9,23 +9,23 @@ public class bitacora {
 	JTable table = new JTable(model);
 	solveINT sol = new solveINT();
 	int tim,cont=0;
-	public void impre_bitacora(int cant){
+	
+	public bitacora(){
 		model.addColumn("tiempo");
 		model.addColumn("Dispositivo");
 		model.addColumn("Hubo Interrupcion");
 		model.addColumn("Rango");
 		model.addColumn("Tiempo Restante");
-		for(int i=0;i<=cant;i++) {
-			tim=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca el tiempo "+i));
-			do {
-				if(solveINT.timeini[cont]<tim) {
-					if(solveINT.timefini[cont]>tim) {
-						model.addRow(new Object[] {tim,sol.dispo[cont],sol.inte[cont],solveINT.timeini+"-"+solveINT.timefini,sol.timeleft});
-					}
+	}
+	
+	public void agre_row(int tim){
+		do {
+			if(solveINT.timeini[cont]<tim) {
+				if(solveINT.timefini[cont]>tim) {
+					model.addRow(new Object[] {tim,solveINT.dispo[cont],solveINT.inte[cont],solveINT.timeini+"-"+solveINT.timefini,solveINT.timeleft});
 				}
-				cont++;
-			}while(cont!=sol.getdata());
-		}
-		
+			}
+			cont++;
+		}while(cont!=solveINT.data);	
 	}
 }

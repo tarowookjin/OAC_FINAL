@@ -1,5 +1,6 @@
 package program;
 
+import entities.bitacora;
 import entities.interrupciones;
 import entities.post_print;
 import entities.pre_print;
@@ -21,6 +22,7 @@ public class Main {
 		int program = 0;
 		interrupciones inte = new interrupciones();
 		solveINT sol =new solveINT();
+		bitacora bit = new bitacora();
 		do{
 			try{
 			ele=0;
@@ -128,11 +130,16 @@ public class Main {
 					inte.agregarINT(ans,ans2,ans3);
 					break;}
 				case 4:
-					
+					int cant=0,cont=0;
 					sol.solve(t_total,program);
 					post_print post_imp = new post_print(inte.verificar());
 					post_imp.MostrarTabla();
 					System.out.println("paso aqui");
+					cant=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca cuantos tiempos quiere evaluara en la bitacora"));
+					for(cont=0;cont<cant;cont++) {
+						int time=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca el tiempo "+cont));
+						bit.agre_row(time);
+					}
 					break;
 				case 5:
 					break;

@@ -5,12 +5,12 @@ import java.util.Stack;
 public class solveINT {
 	
 	//data guardada
-	String dispo[]=new String[100];
+	static String dispo[]=new String[100];
 	static int timeini[]=new int[100];
 	static int timefini[]=new int[100];
-	boolean inte[]=new boolean[100];
-	int timeleft[]=new int[100];
-	int data=0;
+	static boolean inte[]=new boolean[100];
+	static int timeleft[]=new int[100];
+	static int data=0;
 	int time;
 	interrupciones in = new interrupciones();
 	
@@ -32,7 +32,7 @@ public class solveINT {
             System.out.println(interrupciones.IRQ[i]);
 		}
 		E.push("16");
-		String dispactual="16";
+		String dispactual="15";
 		int priact=99;//prioridad actual
 		int i=0;
 		dispactual=E.pop();
@@ -68,6 +68,7 @@ public class solveINT {
 				else {
 					timef=time;
 					savedata(dispactual,timei,timef,false,temptime);
+					System.out.println("Save Data:\n"+dispactual+"\n"+timei+" "+timef);
 					timei=timef;
 					dispactual=S.pop();
 					temptime=Integer.parseInt(P.pop());
