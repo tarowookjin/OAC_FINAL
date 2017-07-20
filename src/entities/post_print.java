@@ -21,7 +21,7 @@ public class post_print {
 		do{
 			model.addRow(new Object[] {interrupciones.funcion[Integer.parseInt(solveINT.dispo[i])],solveINT.timeini[i],solveINT.timefini[i],solveINT.timeleft[i]});
 			i++;
-		}while(i!=sol.getdata());//imprime los encabezados
+		}while(i!=solveINT.data);//imprime los encabezados
 		}
 		else {
 			JOptionPane.showMessageDialog(null,"ERROR NINGUN DATO QUE SIMULAR");
