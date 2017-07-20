@@ -33,7 +33,7 @@ public class solveINT {
 			
             System.out.println(interrupciones.IRQ[i]);
 		}
-		E.push("16");
+		E.push("15");
 		String dispactual="15";
 		int priact=99;//prioridad actual
 		int i=0;
@@ -72,14 +72,16 @@ public class solveINT {
 					savedata(dispactual,timei,timef,false,temptime);
 					System.out.println("Save Data:\n"+dispactual+"\n"+timei+" "+timef);
 					timei=timef;
-					dispactual=S.pop();
-					temptime=Integer.parseInt(P.pop());
-					temptime--;
+					if(!S.isEmpty()) {
+						dispactual=S.pop();
+						temptime=Integer.parseInt(P.pop());
+						temptime--;	
+					}
 					time++;
-				}	
+				}
 			}
-		System.out.println("Dispactua: "+dispactual+" TIME: "+time);
-		}while(time!=finaltime);
+		System.out.println("Dispactua: "+dispactual+" TIME: "+time+" TIMELEFT: "+temptime);
+		}while((time-1)!=finaltime);
 	}
 	
 	

@@ -136,10 +136,11 @@ public class Main {
 					post_imp.MostrarTabla();
 					System.out.println("paso aqui");
 					cant=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca cuantos tiempos quiere evaluara en la bitacora"));
-					for(cont=0;cont<cant;cont++) {
-						int time=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca el tiempo "+cont));
+					for(cont=0;cont<=cant-1;cont++) {
+						int time=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca el tiempo "+(cont+1)));
 						bit.agre_row(time);
 					}
+					bit.MostrarTabla();
 					break;
 				case 5:
 					break;
