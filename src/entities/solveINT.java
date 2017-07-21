@@ -33,8 +33,8 @@ public class solveINT {
 			
             System.out.println(interrupciones.IRQ[i]);
 		}
-		E.push("15");
-		String dispactual="15";
+		E.push("16");
+		String dispactual="16";
 		int priact=99;//prioridad actual
 		int i=0;
 		dispactual=E.pop();
