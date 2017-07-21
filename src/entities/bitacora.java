@@ -26,7 +26,7 @@ public class bitacora {
 			System.out.println("Timeini "+solveINT.timeini[cont]);
 			if(solveINT.timeini[cont]<tim) {
 				if(solveINT.timefini[cont]>tim) {
-					model.addRow(new Object[] {tim,solveINT.dispo[cont],solveINT.inte[cont],solveINT.timeini[cont]+"-"+solveINT.timefini[cont],solveINT.timeleft[cont]});
+					model.addRow(new Object[] {tim,interrupciones.funcion[Integer.parseInt(solveINT.dispo[cont])],solveINT.inte[cont],solveINT.timeini[cont]+"-"+solveINT.timefini[cont],solveINT.timeleft[cont]});
 				}
 			}
 			cont++;
