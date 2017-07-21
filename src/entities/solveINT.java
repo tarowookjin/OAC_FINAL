@@ -35,6 +35,8 @@ public class solveINT {
 		}
 		E.push("16");
 		String dispactual="16";
+
+		
 		int priact=99;//prioridad actual
 		int i=0;
 		dispactual=E.pop();
@@ -73,6 +75,7 @@ public class solveINT {
 					System.out.println("Save Data:\n"+dispactual+"\n"+timei+" "+timef);
 					timei=timef;
 					if(!S.isEmpty()) {
+						priact=Integer.parseInt(interrupciones.prioridad[Integer.parseInt(S.peek())]);
 						dispactual=S.pop();
 						temptime=Integer.parseInt(P.pop());
 						temptime--;	
