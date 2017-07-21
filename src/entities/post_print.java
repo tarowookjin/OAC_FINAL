@@ -20,6 +20,7 @@ public class post_print {
 		model.addColumn("Pendiente");
 		do{
 			model.addRow(new Object[] {interrupciones.funcion[Integer.parseInt(solveINT.dispo[i])],solveINT.timeini[i],solveINT.timefini[i],solveINT.timeleft[i]});
+			model.addRow(new Object [] {""});
 			i++;
 		}while(i!=solveINT.data);//imprime los encabezados
 		}
