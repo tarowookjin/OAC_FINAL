@@ -39,7 +39,7 @@ public class interrupciones {
 		funcion[13]="Co-Procesado";
 		funcion[14]="Disco";
 		funcion[15]="Libre";
-		funcion[15]="Programa";
+		funcion[16]="Programa";
 		
 		prioridad[0]="1";
 		prioridad[1]="2";
