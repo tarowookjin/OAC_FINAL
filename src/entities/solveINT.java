@@ -104,7 +104,7 @@ public class solveINT {
 		int prio,prio2;
 		prio=Integer.parseInt(interrupciones.prioridad[Integer.parseInt(S.peek())]);
 		prio2=Integer.parseInt(interrupciones.prioridad[Integer.parseInt(E.peek())]);
-		if(prio< 	prio2){
+		if(prio>prio2){
 			S.push(E.pop());
 			P.push(Integer.toString(interrupciones.duration[i]));
 		}else {
